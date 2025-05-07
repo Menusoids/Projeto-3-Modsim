@@ -84,6 +84,27 @@ plt.legend()
 plt.grid()
 plt.show()
 
+# --------------- GRÁFICO PRÉ CONCLUSIVO ---------------------------------
+
+for ang in angulos:
+    if ang == 10:
+        continue
+
+    vx0 = v0 * cos (radians(ang))
+    vy0 = v0 * sin (radians(ang))
+
+    X = [x0, y0, vx0, vy0]
+    aplicação = odeint(modelo, X, tempo)
+    plt.plot(aplicação[:,0], aplicação[:,1], label=f'{ang}°')
+
+plt.title('Trajetória do lançamento para diferentes angulos')
+plt.axis('equal')
+plt.xlabel('$x$')
+plt.ylabel('$y$')
+plt.legend()
+plt.grid()
+plt.show()
+
 
 
 		
